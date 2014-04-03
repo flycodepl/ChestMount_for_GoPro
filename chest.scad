@@ -1,3 +1,4 @@
+include<GoPro_Connection.scad>
 $fn=20;
 h=3.5;
 
@@ -32,3 +33,13 @@ module polowka_3D() {
 
 color("green") polowka_3D();
 mirror([1,0,0]) polowka_3D();
+
+translate([-8,65,3]) {
+    difference() {
+        union() {
+            rotate([90,0,0]) GoPro_Connection();
+            translate([-3,-15,0]) cube([21.8,15,10]);
+        }
+        translate([-3.05,-14,7.7]) rotate([0,90,0]) cylinder(22,7.1,7.1);
+    }
+}
